@@ -27,11 +27,9 @@ public class WeatherService {
       }
     }
 
-  @Autowired
-  VisualcrossingRepository weatherRepo;
 
   public CityInfo forecastByCity(String city) {
 
-    return weatherRepo.getByCity(city);
+    return visualcrossingRepository.getByCity(city);
   }
 }
