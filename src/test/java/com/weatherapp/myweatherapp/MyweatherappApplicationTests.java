@@ -11,3 +11,6 @@ class MyweatherappApplicationTests {
 	}
 
 }
+
+// Couldn't complete but would have attempted to run tests to verify the WeatherController and
+// WeatherService functionality

@@ -26,4 +26,5 @@ public class WeatherController {
 
   // TODO: given two city names, check which city its currently raining in
 
+  // Errors prevented me from working on the Weather Controller
 }

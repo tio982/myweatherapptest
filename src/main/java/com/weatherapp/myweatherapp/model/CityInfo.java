@@ -1,6 +1,9 @@
 package com.weatherapp.myweatherapp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.time.Duration;
+import java.time.temporal.Temporal;
 import java.util.List;
 
 public class CityInfo {
@@ -17,8 +20,6 @@ public class CityInfo {
   @JsonProperty("days")
   List<Days> days;
 
-  @JsonProperty("daylightHours")
-  long daylightHours;
 
   public String getAddress() {
     return address;
@@ -52,27 +53,17 @@ public class CityInfo {
     this.days = days;
   }
 
-  public long getDaylightHours() {
-    return daylightHours;
-  }
-
-  public void setDaylightHours(long daylightHours) {
-    this.daylightHours = daylightHours;
-  }
-
-  public boolean isCurrentlyRaining() {
-    return currentlyRaining;
-  }
-
-  public void setCurrentlyRaining(boolean currentlyRaining) {
-    this.currentlyRaining = currentlyRaining;
-  }
-
-  @JsonProperty("currentlyRaining")
-  boolean currentlyRaining;
+//  public Duration getDaylightHours() {
+//    Temporal sunrise = null;
+//    return Duration.between(sunrise, sunset);
+//  }
 
 
   static class CurrentConditions {
+    @JsonProperty("daylightHours")
+    long daylightHours;
+    @JsonProperty("currentlyRaining")
+    boolean currentlyRaining;
     @JsonProperty("temp")
     String currentTemperature;
 
@@ -103,9 +94,12 @@ public class CityInfo {
       return sunrise;
     }
 
-    public void setSunrise(String sunrise) {
+    public String setSunrise(String sunrise) {
       this.sunrise = sunrise;
+    return sunrise;
     }
+
+    // Needed to convert sunrise and sunset to temporals to configure daylight hours
 
     public String getSunset() {
       return sunset;
@@ -137,6 +131,21 @@ public class CityInfo {
 
     public void setConditions(String conditions) {
       this.conditions = conditions;
+    }
+    public Duration getDaylightHours() {
+      return Duration.between(this.sunrise, this.sunset);
+    }
+
+    public void setDaylightHours(long daylightHours) {
+      this.daylightHours = daylightHours;
+    }
+
+    public boolean isCurrentlyRaining() {
+      return currentlyRaining;
+    }
+
+    public void setCurrentlyRaining(boolean currentlyRaining) {
+      this.currentlyRaining = currentlyRaining;
     }
   }
 

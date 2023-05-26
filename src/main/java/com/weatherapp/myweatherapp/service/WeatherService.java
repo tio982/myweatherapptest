@@ -15,7 +15,7 @@ public class WeatherService {
       CityInfo cityInfo1 = visualcrossingRepository.getByCity(city1);
       CityInfo cityInfo2 = visualcrossingRepository.getByCity(city2);
 
-      long daylightHours1 = cityInfo1.getDaylightHours();
+      long daylightHours1 = cityInfo1.getDaylightHours(); // Obstructed by error in the Cityinfo Class
       long daylightHours2 = cityInfo2.getDaylightHours();
 
       if (daylightHours1 > daylightHours2) {
@@ -31,7 +31,7 @@ public class WeatherService {
         CityInfo cityInfo1 = visualcrossingRepository.getByCity(city1);
         CityInfo cityInfo2 = visualcrossingRepository.getByCity(city2);
 
-        boolean isRainingInCity1 = cityInfo1.isCurrentlyRaining();
+        boolean isRainingInCity1 = cityInfo1.isCurrentlyRaining(); // Obstructed by errors in the city info class
         boolean isRainingInCity2 = cityInfo2.isCurrentlyRaining();
 
         if (isRainingInCity1 && !isRainingInCity2) {
