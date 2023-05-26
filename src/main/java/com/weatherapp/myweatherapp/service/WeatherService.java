@@ -50,3 +50,5 @@ public class WeatherService {
     return visualcrossingRepository.getByCity(city);
   }
 }
+
+// Could have attempted to fix errors but utilising and researching API data more effectively but ran out of time
