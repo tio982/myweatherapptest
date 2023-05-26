@@ -9,15 +9,15 @@ import org.springframework.web.client.RestTemplate;
 public class VisualcrossingRepository {
 
   @Value("${weather.visualcrossing.url}")
-  String url;
+  String baseUrl;
   @Value("${weather.visualcrossing.key}")
-  String key;
+  String apiKEY;
 
 
   public CityInfo getByCity(String city) {
-    String uri = url + "timeline/" +city + "?key=" + key;
+    String url = baseUrl + city + "/today?key=" + apiKEY;
     RestTemplate restTemplate = new RestTemplate();
-    return restTemplate.getForObject(uri, CityInfo.class);
+    return restTemplate.getForObject(url, CityInfo.class);
 
   }
 
