@@ -17,6 +17,13 @@ public class CityInfo {
   @JsonProperty("days")
   List<Days> days;
 
+  @JsonProperty("daylightHours")
+  long daylightHours;
+
+  @JsonProperty("currentlyRaining")
+  boolean currentlyRaining;
+
+
   static class CurrentConditions {
     @JsonProperty("temp")
     String currentTemperature;
