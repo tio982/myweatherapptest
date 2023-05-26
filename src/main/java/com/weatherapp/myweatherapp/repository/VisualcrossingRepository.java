@@ -21,10 +21,10 @@ public class VisualcrossingRepository {
 
   }
 
-  // Need methods to calculate daylight hours and whether it is raining
-  long calculateDaylightHours(CityInfo cityInfo);
-  boolean currentlyRaining(CityInfo cityInfo);
-
-  // Write methods in the weatherservice class to remove warnings
+//  // Need methods to calculate daylight hours and whether it is raining
+//  long calculateDaylightHours(CityInfo cityInfo);
+//  boolean currentlyRaining(CityInfo cityInfo);
+//
+//  // Write methods in the weatherservice class to remove warnings
 
 }

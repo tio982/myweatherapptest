@@ -11,7 +11,7 @@ public class WeatherService {
     @Autowired
     private VisualcrossingRepository visualcrossingRepository;
 
-    public String compareDaylightHours(String city1, String city2) {
+    public String calculateDaylightHours(String city1, String city2) {
       CityInfo cityInfo1 = visualcrossingRepository.getByCity(city1);
       CityInfo cityInfo2 = visualcrossingRepository.getByCity(city2);
 
@@ -27,6 +27,23 @@ public class WeatherService {
       }
     }
 
+    public String checkRain(String city1, String city2) {
+        CityInfo cityInfo1 = visualcrossingRepository.getByCity(city1);
+        CityInfo cityInfo2 = visualcrossingRepository.getByCity(city2);
+
+        boolean isRainingInCity1 = cityInfo1.isCurrentlyRaining();
+        boolean isRainingInCity2 = cityInfo2.isCurrentlyRaining();
+
+        if (isRainingInCity1 && !isRainingInCity2) {
+            return city1;
+        } else if (isRainingInCity2 && !isRainingInCity1) {
+            return city2;
+        } else if (isRainingInCity1 && isRainingInCity2) {
+            return "Both cities are currently experiencing rain.";
+        } else {
+            return "Neither city is currently experiencing rain.";
+        }
+    }
 
   public CityInfo forecastByCity(String city) {
 
